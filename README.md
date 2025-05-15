@@ -1,2 +1,4 @@
 # mtm6302-capstone-seni0026
-Building a Pokedex for a capstone project
+Name: Kevon Senior
+Student #: 041124394
+Project: Building a Pokedex
