@@ -3,8 +3,8 @@
 
 /* CSS RESET */
 /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
+    v2.0 | 20110126
+    License: none (public domain)
 */
 
 html, body, div, span, applet, object, iframe,
@@ -62,7 +62,7 @@ table {
 
 body {
     font-family: "Lato", sans-serif;
-    background: rgb(30, 30, 30) url(images/pikachu-sign-in-small.svg) no-repeat;
+    background: rgb(30, 30, 30) url(../images/pikachu-sign-in-small.svg) no-repeat;
     background-size: 110%;
     background-position: top;
 }
@@ -121,7 +121,8 @@ h1 {
     border-radius: 15px;
     color: rgb(30, 30, 30);
     background: linear-gradient(120deg, rgba(0, 140, 255, 0.9), rgba(118, 255, 0, 0.3));
-    font-weight: 900;
+    font-weight: 700;
+    font-family: "Lato", sans-serif;
     letter-spacing: 1px;
     font-size: 17.6px;
     color: rgb(229, 255, 196);
@@ -191,18 +192,18 @@ h1 {
 }
 
 #userName {
-    background-image: url(/images/user-icon.svg);
+    background-image: url(../images/user-icon.svg);
     margin-bottom: 30px;
 }
 
 #userEmail {
-    background-image: url(/images/mail.svg);   
+    background-image: url(../images/mail.svg);   
     margin-bottom: 30px;
 }
 
 #userPassword,
 #confirmpassword {
-    background-image: url(/images/password-lock.svg);
+    background-image: url(../images/password-lock.svg);
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 8px;   
@@ -218,7 +219,7 @@ input::placeholder {
 @media screen and (min-width: 760px) {
     /* Add background image to the body */
     body {
-        background: url(images/pikachu-sign-in-1.png) no-repeat;
+        background: url(../images/pikachu-sign-in-1.png) no-repeat;
         height: 100%;
         background-position: bottom;
         background-size: 100vw;
@@ -265,7 +266,7 @@ input::placeholder {
     /* Style the login button */
     #login-form button {
         font-size: 22px;
-        font-weight: normal;
+        font-weight: 700;
         cursor: pointer;
         transition: all 1s ease-in-out;
     }
