@@ -1,0 +1,300 @@
+/* Playfair, Lato, and Montserrat font */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
+/* CSS RESET */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ****************************
+         CUSTOM CSS
+********************************* */
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    background: rgb(30, 30, 30) url(images/pikachu-sign-in-small.svg) no-repeat;
+    background-size: 110%;
+    background-position: top;
+}
+
+/* Style the Sign in Page main container*/
+#sign-in {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100vh;
+}
+
+/* Style the form heading */
+h1 {
+    margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 39.81px;
+    font-weight: 600;
+    color: rgb(229, 255, 196);
+}
+
+/* Style the form instruction text */
+.form-instruction {
+    color: rgb(229, 255, 196);
+    margin-bottom: 30px;
+    font-family: "Lato", sans-serif;
+}
+
+/* Add style to the login form */
+#login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10rem;
+}
+
+/* Style the input fields */
+#input-fields input {
+    background-color: transparent;
+    border: 1px solid rgb(118, 255, 0);
+    border-radius: 15px;
+    padding: 12px 35px;
+    font-size: 17.6px;
+    font-style: italic;
+    outline: none;
+    color: rgb(229, 255, 196);
+}
+
+/* Style the login button */
+#login-form button {
+    width: 50%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 15px;
+    color: rgb(30, 30, 30);
+    background: linear-gradient(120deg, rgba(0, 140, 255, 0.9), rgba(118, 255, 0, 0.3));
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-size: 17.6px;
+    color: rgb(229, 255, 196);
+    margin-bottom: 20px;
+}
+
+/* Add style to the forgot password link */
+#forgot-password {
+    margin: 10px 0 60px 0;
+    font-size: 17.6px;
+    font-style: italic;
+    color: rgb(0, 140, 255);
+    text-decoration: none;
+}
+
+/* Style the sign up link */
+#sign-up {
+    font-style: italic;
+    color: rgb(0, 140, 255);
+    font-size: 17.6px;
+    text-decoration: none;
+}
+
+/* Change color for the text with the id new account */
+#new-account {
+    color: rgb(229, 255, 196);
+    font-size: 17.6px;
+}
+
+/* Add margin to the password input fields */
+#confirmpassword {
+    margin: 30px 0;
+}
+
+/* Change the color for the text already have an account */
+.existing-account {
+    color: rgb(229, 255, 196);
+    margin-bottom: 20px;
+    font-size: 17.6px;
+}
+
+/* Style the existing account link */
+.existing-account-login {
+    color: rgba(0, 140, 255, 0.9);
+    font-style: italic;
+    font-size: 17.6px;
+}
+
+.policy {
+    color: rgb(229, 255, 196);
+    margin-bottom: 40px;
+    font-size: 17.6px;
+}
+
+.policy-link {
+    color: rgba(0, 140, 255, 0.9);
+    font-style: italic;
+    font-size: 17.6px;
+}
+
+/* Position the form icons into the input field and add style */
+#userName,
+#userEmail {
+    background-repeat: no-repeat;
+    background-size: 22px;
+    background-position: 8px;   
+}
+
+#userName {
+    background-image: url(/images/user-icon.svg);
+    margin-bottom: 30px;
+}
+
+#userEmail {
+    background-image: url(/images/mail.svg);   
+    margin-bottom: 30px;
+}
+
+#userPassword,
+#confirmpassword {
+    background-image: url(/images/password-lock.svg);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 8px;   
+}
+
+/* Style the input fields place holder text */
+input::placeholder {
+  color: rgb(229, 255, 196);
+  opacity: 0.7;
+}
+
+/* ******************************** Desktop Layout *************************************** */
+@media screen and (min-width: 760px) {
+    /* Add background image to the body */
+    body {
+        background: url(images/pikachu-sign-in-1.png) no-repeat;
+        height: 100%;
+        background-position: bottom;
+        background-size: 100vw;
+    }
+
+    /* Style the Sign in Page main container*/
+    #sign-in {
+        align-items: end;
+    }
+
+    h1 {
+        font-size: 54.74px;
+    }
+
+    /* Style the form instruction text */
+    .form-instruction {
+        color: rgb(229, 255, 196);
+        margin-bottom: 30px;
+        font-size: 22px;
+    }
+
+    /* Style the form background container */
+    #form-background {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 40%;
+        background: linear-gradient(to right, rgba(30, 30, 30, 0.9), rgba(30, 30, 30, 0.9));
+    }
+
+    /* Add style to the login form */
+    #login-form {
+        width: 70%;
+        margin-top: 0;
+        padding-left: 10rem;
+        margin-bottom: 0;
+    }
+
+    /* Set focus state for input fields */
+    #input-fields input:focus {
+        border: 1px solid rgb(118, 255, 0);
+    }
+
+    /* Style the login button */
+    #login-form button {
+        font-size: 22px;
+        font-weight: normal;
+        cursor: pointer;
+        transition: all 1s ease-in-out;
+    }
+
+    #login-form button:hover {
+        background: rgba(118, 255, 0, 0.3);
+        color: #fff;
+        box-shadow: 0 8px rgba(229, 255, 196, 0.4);
+        transform: scale(0.9);
+    }
+
+    /* Add style to the forgot password link */
+    #forgot-password:hover {
+        text-decoration: underline;
+    }
+
+    /* When user hover over the sign up link */
+    #sign-up:hover {
+        text-decoration: underline;
+    }
+
+    /* Position the form icons into the input field and add style */
+    #userName {
+        background-size: 25px;
+        background-position: 7px 10px;   
+    }
+
+    #userPassword {
+        background-size: 22px;
+        background-position: 7px 10px;   
+    }
+}
