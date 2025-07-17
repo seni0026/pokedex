@@ -66,6 +66,73 @@ body {
     height: 100vh;
 }
 
+/* Add background image to the header */
+header {
+        background: url(../images/pokemon_gather.jpg) no-repeat;
+        background-position: center;
+        background-size: cover;
+}
+
+/* Create an overlay */
+.wrapper {
+    background: rgba(30, 30, 30, 0.9);
+}
+
+/*************************************
+            Navigation 
+**************************************/
+.open {
+    visibility: hidden;
+}
+
+.toggler-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding-bottom: 7px;
+}
+
+/* Style user icon */
+.fa-circle-user {
+    color: rgb(118, 255, 0);
+    font-size: 26px;
+}
+
+.fa-right-from-bracket {
+    padding-left: 5px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+#user-name {
+    color: rgb(229, 255, 196);
+    font-family: "Roboto", sans-serif;
+    padding-left: 10px;
+}
+
+.navbar-container {
+    padding: 20px;
+}
+
+#nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: rgb(0, 140, 255);
+    font-family: "Lato", sans-serif;
+}
+/* *********************** Navigation Styles End ******************************* */
+
 #welcome-section {
     display: flex;
     flex-direction: column;
@@ -74,7 +141,21 @@ body {
 
 /* Style the container */
 .container {
-    padding: 30px 50px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 30px;
+}
+
+#angry-pikachu {
+    position: absolute;
+	right: 130px;
+    top: -95px;
+}
+
+#pikachu-banner h2 {
+    padding: 20px 0;
+    text-align: right;
+    margin-right: 50px;
 }
 
 /* Change h1, h2 and p text color */
@@ -87,7 +168,7 @@ h1, h3, p {
 h3 {
     font-size: 19.2px;
     font-family: "Roboto", sans-serif;
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 /* Change h2 font size */
@@ -107,54 +188,424 @@ h1 {
 
 /* Style the pokeland link and the load more pokemon button */
 .load-pokemon-btn,
-#pokeland-link {
+#pokeland-link,
+.catch-pokemon-btn {
     padding: 10px 15px;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(120deg, rgba(0, 140, 255, 0.9), rgba(118, 255, 0, 0.5));
-    font-weight: 700;
+    background: linear-gradient(120deg, rgb(0, 140, 255), rgb(118, 255, 0));
+    font-weight: 900;
     font-family: "Lato", sans-serif;
-    letter-spacing: 1px;
+    /* letter-spacing: 1px; */
     font-size: 17.6px;
-    color: rgb(229, 255, 196);
+    color: rgb(30, 30, 30);
     text-decoration: none;
 }
 
 /* Add margin to the enter pokeland link */
 #pokeland-link {
-    margin: 20px 0 50px 0;
+    margin: 20px 0 100px 0;
 }
 
 /* Style the gotta catch 'em all banner */
 #pikachu-banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
     background: rgb(118, 255, 0);
 }
 
 #pokemon-section {
     background: rgb(229, 255, 196);
+    padding-bottom: 1px;
 }
 
 /* Style the Pokemon display */
 #pokemon-display {
     display: grid;
+    justify-content: space-evenly;
     grid-template-columns: 170px 170px;
-    justify-content: center;
-    gap: 15px;
-    /* align-content: center; */
+    column-gap: 15px;
+    row-gap: 50px;
+    padding: 50px 0;
 }
 
+/* Align the pokemon */
 .pokemon {
     justify-self: center;
-    align-self: center;
+    align-items: flex-end;
+}
+
+/* Add style to the p element with the pokemon name */
+.pokemon p {
+    color: rgb(30, 30, 30);
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Center the load more Pokemon button */
 .load-pokemon-btn {
     display: flex;
+    margin: 50px auto;
+    cursor: pointer;
+}
+
+/***********************************
+        Style the overlay 
+ **********************************/
+#overlay {
+	display: flex;
+    flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background: rgba(30, 30, 30, 0.9);
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+
+/* Add margin to the overlay button */
+#overlay button {
+    margin-top: 50px;
+}
+
+#pokemon-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style the container with the pokemon info */
+#pokeInfoChart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    column-gap: 50px;
+    row-gap: 20px;
+    padding: 20px 10px;
+    background: rgba(30, 30, 30, 0.7);
+    border: 1px solid  rgba(118, 255, 0, 0.7);
+    border-radius: 10px;
+    min-height: 250px;
+    margin: 0 15px;     
+}
+
+/* Change the size of the pokemon on the overlay */
+#overlay img {
+    height: 290px;
+    filter: drop-shadow(10px 0 10px rgb(229, 255, 196));
+}
+
+/* add style to the h2 text on the overlay */
+.data h3 {
+    color: rgb(229, 255, 196);
+    margin-bottom: 3px;
+    margin-top: 0;
+}
+
+/* Style the body text on the overlay */
+.data p {
+    font-family: "Roboto", sans-serif;
+}
+
+/* Add background image to Pokeland */
+#pokeland {
+    /* background: url(../images/pokeland.png) no-repeat;
+    background-position: top;
+    background-size: cover; */
+}
+
+/* Style the Pokemon Commands */
+.pokemon-command {
+    justify-self: center;
+    align-items: center;
+}
+
+.pokemon-command h4 {
+    text-align: center;
+}
+
+/* ************************** Carousel Style ***************************** */
+.carousel-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 450px;
+    position: relative;
+    margin-top: 80px;
+}
+
+.carousel-track {
+    width: 100%;
+    height: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px 0;
+    position: relative;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card {
+    position: absolute;
+    width: 230px;
+    height: 280px;
+    color: rgb(255, 255, 255);
+    background: rgba(30, 30, 30, 0.9);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+}
+
+.card img {
+    background: rgb(229, 255, 196);
+    padding: 30px 0;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card.center {
+    z-index: 10;
+    transform: scale(1.1) translateZ(0);
+}
+
+.card.center img {
+    filter: none;
+}
+
+.card.left-2 {
+    z-index: 1;
+    transform: translateX(-400px) scale(0.8) translateZ(-300px);
+    opacity: 0.7;
+}
+
+.card.left-2 img {
+    filter: grayscale(100%);
+}
+
+.card.left-1 {
+    z-index: 5;
+    transform: translateX(-200px) scale(0.9) translateZ(-100px);
+    opacity: 0.9;
+}
+
+.card.left-1 img {
+    filter: grayscale(100%);
+}
+
+.card.right-1 {
+    z-index: 5;
+    transform: translateX(200px) scale(0.9) translateZ(-100px);
+    opacity: 0.9;
+}
+
+.card.right-1 img {
+    filter: grayscale(100%);
+}
+
+.card.right-2 {
+    z-index: 1;
+    transform: translateX(400px) scale(0.8) translateZ(-300px);
+    opacity: 0.7;
+}
+
+.card.right-2 img {
+    filter: grayscale(100%);
+}
+
+.card.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 60px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(8, 42, 123, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: rgb(8, 42, 123);
+    transform: scale(1.2);
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgb(118, 255, 0);
+    color: rgb(30, 30, 30);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s ease;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    padding-bottom: 4px;
+}
+
+.nav-arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.nav-arrow.left {
+    left: -250px;
+    padding-right: 3px;
+}
+
+.nav-arrow.right {
+    right: -250px;
+    padding-left: 3px;
+}
+
+
+
+
+
+/* .card {
+    width: 200px;
+    height: 280px;
+} */
+
+.card.left-2 {
+    transform: translateX(-250px) scale(0.8) translateZ(-300px);
+}
+
+.card.left-1 {
+    transform: translateX(-120px) scale(0.9) translateZ(-100px);
+}
+
+.card.right-1 {
+    transform: translateX(120px) scale(0.9) translateZ(-100px);
+}
+
+.card.right-2 {
+    transform: translateX(250px) scale(0.8) translateZ(-300px);
+}
+
+
+
+/* ******************************** Desktop Layout *************************************** */
+@media screen and (min-width: 760px) {
+    /* Add background image to the header */
+    header {
+        background: url(../images/ash_and_pokemon.png) no-repeat;
+        background-position: top;
+        background-size: cover;
+    }
+
+    .toggler-icon {
+        cursor: pointer;
+    }
+
+    .nav-link {
+        font-size: 18.33px;
+    }
+
+    /* Style the container */
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 30px;
+    }
+
+    /* Style the h3 text */
+    h3 {
+        font-size: 26.4px;
+        margin-top: 80px;
+    }
+
+    /* Change h2 font size */
+    h2 {
+        font-size: 31.68px;
+    }
+
+    /* Add style to the heading text */
+    h1 {
+        font-size: 54.74px;
+        font-weight: bold;
+    }
+
+    /* Change p text size */
+    p {
+        font-size: 22px;
+    }
+
+    #angry-pikachu {
+        left: 580px;
+        top: -87px;
+    }
+
+    #pikachu-banner h2 {
+        text-align: center;
+        margin-right: 0;
+        padding-left: 50px;
+    }
+
+    /* Style the Pokemon display */
+    #pokemon-display {
+        grid-template-columns: repeat(4, 170px);
+        /* column-gap: 100px; */
+        row-gap: 100px;
+    }
+
+    .pokemon {
+        justify-self: center;
+        cursor: pointer;
+    }
+
+    .pokemon img {
+        height: 160px;
+    }
+
+    /* Center the load more Pokemon button */
+    .load-pokemon-btn {
+        margin: 100px auto;
+    }
+
+    /* ****************************************** 
+        Style the overlay and its contents
+    **********************************************/
+    #overlay {
+        flex-direction: row;
+        column-gap: 80px;
+    }
+
+    #pokeInfoChart {
+        padding: 35px;
+    }
+
+    /* Change the size of the pokemon on the overlay */
+    #overlay img {
+        height: 700px;
+    }
+
+    /* ************************** Carousel Style ************************** */
+    .carousel-container {
+        width: 100%;
+        max-width: 1200px;
+        height: 450px;
+        position: relative;
+        margin-top: 80px;
+    }
 }

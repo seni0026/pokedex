@@ -1,0 +1,143 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['email'])) {
+        header('Location: ../index.html');
+        exit();
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles/dashboard-style.css">
+
+    <!-- Fav Icon -->
+    <link rel="icon" type="image/x-icon" href="../images/Pokeball.png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <title>Pokédex Dashboard</title>
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <!-- Nav Bar start -->
+            <nav class="navbar">
+                <div class="navbar-container">
+                    <span class="toggler-icon">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <span id="user-name"><?php echo strtoupper($_SESSION['name']);?></span>
+                    </span>
+                    <div class="open" id="navbarNav">
+                        <ul id="nav-links">
+                            <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../pokeland.php">Enter Pokéland</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Manage Account</a></li>
+                            <li class="nav-item"><a class="nav-link" href="log_out.php">Log out <span><i class="fa-solid fa-right-from-bracket"></i></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Nav Bar end --> 
+
+            <!-- Welcome Section -->
+            <section>
+                <div class="container" id="welcome-section">
+                    <h1><span><?php echo strtoupper($_SESSION['name']);?></span>, you are in Pokéland!</h1>
+                    <h3>This is where you command your Pokémon. These are your options:</h3>
+                </div>
+            </section>
+        </div>
+    </header>
+    <main id="pokeland">
+        <div class="wrapper">
+            <!-- Commands Section -->
+            <section id="pokemon-section">
+                <div id="pokemon-display">
+                    <div class="pokemon-command">
+                        <h4>Send Pokémon to Train</h4>
+                        <img src="../images/train.svg" alt="" height="30px">
+                    </div>
+                    <div class="pokemon-command">
+                        <h4>Battle</h4>
+                        <img src="../images/battle.svg" alt="" height="30px">
+                    </div>
+                    <div class="pokemon-command">
+                        <h4>Release Pokémon</h4>
+                        <img src="../images/phoenix.png" alt="" height="30px">
+                    </div>
+                    <div class="pokemon-command">
+                        <h4>Pokémon Stats</h4>
+                        <img src="../images/info.png" alt="" height="30px">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Caught Pokémon Carousel -->
+            <section>
+                <div class="container">
+                    <h3>All caught Pokémon are here.</h3>
+        
+                    <div class="carousel-container">
+                        <button class="nav-arrow left">‹</button>
+                        <div class="carousel-track">
+                            <div class="card" data-index="0">
+                                <img src="../images/Squirtle.svg" alt=""  height="80px">
+                                <!-- <ul id="commands">
+                                    <li class="command-btn">
+                                        <img src="../images/train.svg" alt="">
+                                    </li>
+                                    <li class="command-btn">
+                                        <img src="../images/battle.svg" alt="">
+                                    </li>
+                                    <li class="command-btn">
+                                        <img src="../images/phoenix.png" alt="">
+                                    </li>
+                                    <li class="command-btn">
+                                        <img src="../images/info.png" alt="">
+                                    </li>
+                                </ul> -->
+                            </div>
+                            <div class="card" data-index="1">
+                                <img src="../images/bulbasaur.png" alt="" height="80px">
+                            </div>
+                            <div class="card" data-index="2">
+                                <img src="../images/caterpie.png" alt="" height="80px">
+                            </div>
+                            <div class="card" data-index="3">
+                                <img class="plusHeight" src="../images/Charmander.svg" alt="" height="80px">
+                            </div>
+                            <div class="card" data-index="4">
+                                <img class="plusHeight" src="../images/Pikachu.png" alt="" height="80px">
+                            </div>
+                            <div class="card" data-index="5">
+                                    <img src="../images/caterpie.png" alt="" height="80px">
+                            </div>
+                        </div>
+                        <button class="nav-arrow right">›</button>
+                    </div>
+        
+                    <div class="dots">
+                        <div class="dot active" data-index="0"></div>
+                        <div class="dot" data-index="1"></div>
+                        <div class="dot" data-index="2"></div>
+                        <div class="dot" data-index="3"></div>
+                        <div class="dot" data-index="4"></div>
+                        <div class="dot" data-index="5"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+<script src="../scripts/dashboard.js"></script>
+</html>

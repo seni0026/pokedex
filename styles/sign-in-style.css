@@ -65,6 +65,7 @@ body {
     background: rgb(30, 30, 30) url(../images/pikachu-sign-in-small.svg) no-repeat;
     background-size: 110%;
     background-position: top;
+    height: 100%;
 }
 
 /* Style the Sign in Page main container*/
@@ -120,12 +121,10 @@ h1 {
     border: none;
     border-radius: 15px;
     color: rgb(30, 30, 30);
-    background: linear-gradient(120deg, rgba(0, 140, 255, 0.9), rgba(118, 255, 0, 0.3));
-    font-weight: 700;
+    background: linear-gradient(120deg, rgb(0, 140, 255), rgb(118, 255, 0));
+    font-weight: 900;
     font-family: "Lato", sans-serif;
-    letter-spacing: 1px;
     font-size: 17.6px;
-    color: rgb(229, 255, 196);
     margin-bottom: 20px;
 }
 
