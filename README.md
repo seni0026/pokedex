@@ -36,3 +36,8 @@ The idea I had was to display each pokemon name on the overlay for the large Pok
 I stumbled upon this video as I did further research on the data- attribute, to see if I was applying it correctly. After watching the video, it dawned on me to attach the Pokémon name via the data- attribute to the div that holds the Pokémon image, instead of the actual image since the the Js function I was using to get the images was returning the entire div + content.
 # Tutorial Link
 https://www.youtube.com/watch?v=XtEs0SZ_4Y0
+
+# Problem when making the first API call with the PokeApi
+It seems so easy in class when learning how to fetch data with APIs, but to my surprise when I first made that call with the PokeApi and receive the data, I was a bit confused as to have I am going get the information that I need. It seems overwhelming looking at all that data, ie; an array of objects that contain other objects with objects inside. 
+# Solution
+When I fetched the first 20 Pokémon, I got an array of objects (results) with the Pokémon name and url for each Pokémon. To get the sprites, I used a for loop to loop through the array (i noticed the array has an index of 0-19) and get the name value from the object at the n-th position in the array. I stored the name inside a variable then fetch the data for that Pokémon by inserting that variable into the url. With the returned data I was able to access the sprites object for that Pokémon.

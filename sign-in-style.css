@@ -82,7 +82,7 @@ h1 {
     font-family: "Montserrat", sans-serif;
     font-size: 39.81px;
     font-weight: 600;
-    color: rgb(229, 255, 196);
+    color: #cbf3f0;
 }
 
 /* Style the form instruction text */
@@ -105,13 +105,18 @@ h1 {
 /* Style the input fields */
 #input-fields input {
     background-color: transparent;
-    border: 1px solid rgb(118, 255, 0);
+    border: 1px solid #2EC4B6;
     border-radius: 15px;
     padding: 12px 35px;
     font-size: 17.6px;
     font-style: italic;
     outline: none;
-    color: rgb(229, 255, 196);
+    color: #fff;
+}
+
+/* Set focus state for input fields */
+#input-fields input:focus {
+    border: 2px solid #9cf3e5;
 }
 
 /* Style the login button */
@@ -120,8 +125,8 @@ h1 {
     padding: 10px 0;
     border: none;
     border-radius: 15px;
-    color: rgb(30, 30, 30);
-    background: linear-gradient(120deg, rgb(0, 140, 255), rgb(118, 255, 0));
+    color: #fff;
+    background: #FF9F1C;
     font-weight: 900;
     font-family: "Lato", sans-serif;
     font-size: 17.6px;
@@ -133,21 +138,21 @@ h1 {
     margin: 10px 0 60px 0;
     font-size: 17.6px;
     font-style: italic;
-    color: rgb(0, 140, 255);
+    color: #cbf3f0;
     text-decoration: none;
 }
 
 /* Style the sign up link */
 #sign-up {
     font-style: italic;
-    color: rgb(0, 140, 255);
+    color: #cbf3f0;
     font-size: 17.6px;
     text-decoration: none;
 }
 
 /* Change color for the text with the id new account */
 #new-account {
-    color: rgb(229, 255, 196);
+    color: #2EC4B6;
     font-size: 17.6px;
 }
 
@@ -158,27 +163,27 @@ h1 {
 
 /* Change the color for the text already have an account */
 .existing-account {
-    color: rgb(229, 255, 196);
+    color: #2EC4B6;
     margin-bottom: 20px;
     font-size: 17.6px;
 }
 
 /* Style the existing account link */
 .existing-account-login {
-    color: rgba(0, 140, 255, 0.9);
-    font-style: italic;
+    color: #cbf3f0;
+    text-decoration: none;
     font-size: 17.6px;
 }
 
 .policy {
-    color: rgb(229, 255, 196);
+    color: #2EC4B6;
     margin-bottom: 40px;
     font-size: 17.6px;
 }
 
 .policy-link {
-    color: rgba(0, 140, 255, 0.9);
-    font-style: italic;
+    color: #cbf3f0;
+    text-decoration: none;
     font-size: 17.6px;
 }
 
@@ -210,8 +215,8 @@ h1 {
 
 /* Style the input fields place holder text */
 input::placeholder {
-  color: rgb(229, 255, 196);
-  opacity: 0.7;
+  color: #cbf3f0;
+  opacity: 0.9;
 }
 
 /* ******************************** Desktop Layout *************************************** */
@@ -233,13 +238,6 @@ input::placeholder {
         font-size: 54.74px;
     }
 
-    /* Style the form instruction text */
-    .form-instruction {
-        color: rgb(229, 255, 196);
-        margin-bottom: 30px;
-        font-size: 22px;
-    }
-
     /* Style the form background container */
     #form-background {
         display: flex;
@@ -257,11 +255,6 @@ input::placeholder {
         margin-bottom: 0;
     }
 
-    /* Set focus state for input fields */
-    #input-fields input:focus {
-        border: 1px solid rgb(118, 255, 0);
-    }
-
     /* Style the login button */
     #login-form button {
         font-size: 22px;
@@ -271,19 +264,16 @@ input::placeholder {
     }
 
     #login-form button:hover {
-        background: rgba(118, 255, 0, 0.3);
+        background: #f97c07;
         color: #fff;
-        box-shadow: 0 8px rgba(229, 255, 196, 0.4);
         transform: scale(0.9);
     }
 
     /* Add style to the forgot password link */
-    #forgot-password:hover {
-        text-decoration: underline;
-    }
-
-    /* When user hover over the sign up link */
-    #sign-up:hover {
+    #forgot-password:hover,
+    #sign-up:hover,
+    .existing-account-login:hover,
+    .policy-link:hover {
         text-decoration: underline;
     }
 

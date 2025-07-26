@@ -1,3 +1,5 @@
+
+
 // get the small pokemon
 let smallPokemon = document.querySelectorAll('.pokemon');
 // get the container with the user icon and name and make something happen when user clicks it

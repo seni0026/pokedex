@@ -131,6 +131,7 @@ header {
     color: rgb(0, 140, 255);
     font-family: "Lato", sans-serif;
 }
+
 /* *********************** Navigation Styles End ******************************* */
 
 #welcome-section {
@@ -160,7 +161,7 @@ header {
 
 /* Change h1, h2 and p text color */
 h1, h3, p {
-    color: rgb(229, 255, 196);
+    color: #fff;
     text-align: center;
 }
 
@@ -193,7 +194,7 @@ h1 {
     padding: 10px 15px;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(120deg, rgb(0, 140, 255), rgb(118, 255, 0));
+    background: rgb(0, 140, 255);
     font-weight: 900;
     font-family: "Lato", sans-serif;
     /* letter-spacing: 1px; */
@@ -214,17 +215,17 @@ h1 {
 }
 
 #pokemon-section {
-    background: rgb(229, 255, 196);
+    /* background: #1e1e1e; */
     padding-bottom: 1px;
 }
 
 /* Style the Pokemon display */
 #pokemon-display {
-    display: grid;
-    justify-content: space-evenly;
-    grid-template-columns: 170px 170px;
-    column-gap: 15px;
-    row-gap: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 70px;
+    row-gap: 100px;
     padding: 50px 0;
 }
 
@@ -235,9 +236,14 @@ h1 {
 }
 
 /* Add style to the p element with the pokemon name */
-.pokemon p {
-    color: rgb(30, 30, 30);
+.pokemon-name {
+    /* color: rgb(30, 30, 30); */
     font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+}
+
+.thumbnail img {
+    height: 125px;
 }
 
 /* Center the load more Pokemon button */
@@ -524,9 +530,8 @@ h1 {
 
     /* Style the container */
     .container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 40px 30px;
+        max-width: 1400px;
+        /* padding: 40px 30px; */
     }
 
     /* Style the h3 text */
@@ -566,7 +571,7 @@ h1 {
     #pokemon-display {
         grid-template-columns: repeat(4, 170px);
         /* column-gap: 100px; */
-        row-gap: 100px;
+        /* row-gap: 100px; */
     }
 
     .pokemon {

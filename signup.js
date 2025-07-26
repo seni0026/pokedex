@@ -15,7 +15,7 @@ signUpLink.addEventListener('click', function (event) {
 // function to generated the sign up form html and add it to the page when user click the sign up link
 function signUpForm() {
     signUpHTML = `<h1>Create Account</h1>
-                    <p class="form-instruction">Complete the form to create an account</p>
+                    
 
                     <div id="input-fields">
                         <!-- user name -->
