@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="dashboard-style.css">
 
     <!-- Fav Icon -->
     <link rel="icon" type="image/x-icon" href="images/Pokeball.png">
@@ -16,17 +13,22 @@
     <!-- Animate.css -->
       <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
-    <title>Pokédex Dashboard</title>
+    <title>Pokédex - Dashboard</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="dashboard-style.css">
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <header>
+    <header id="dashboard">
         <div class="wrapper">
             <!-- Nav Bar start -->
             <nav class="navbar">
                 <div class="navbar-container">
                     <span class="toggler-icon">
                         <i class="fa-solid fa-circle-user"></i>
-                        <span id="user-name"></span>
+                        <span class="user-name"></span>
                     </span>
                     <div class="open" id="navbarNav">
                         <ul id="nav-links">
@@ -43,9 +45,9 @@
             <!-- Welcome Section -->
             <section>
                 <div class="container" id="welcome-section">
-                    <h1>Welcome, <span></span> to your Pokédex Dashboard!</h1>
+                    <h1>Welcome, <span class="pokedex-user"></span> to your Pokédex Dashboard!</h1>
 
-                    <h3>0 Pokémon are in Pokéland</h3>
+                    <h3><span id="pokeCount">0</span> Pokémon in Pokéland</h3>
                     <a id="pokeland-link" href="pokeland.html">Enter Pokéland</a>
                 </div>
             </section>
@@ -54,13 +56,13 @@
     <main>
         <!-- Gotta Catch 'Em All Section -->
         <section id="pokemon-section">
-            <div id="pikachu-banner">
-                <img id="angry-pikachu" src="" alt="" data-name="" height="200px">
+            <div id="main-banner">
+                <div id="banner-pokemon"></div>
                 <h2>Gotta Catch 'Em All</h2>
             </div>
 
             <!-- Pokemon Display -->
-            <div id="pokemon-display" class="container"></div>
+            <div id="pokemon-display" class=""></div>
             <button id="more-pokemon" class="load-pokemon-btn" >more Pokémon...</button>
         </section>
     </main>
