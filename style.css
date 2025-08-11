@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Share+Tech+Mono&display=swap');
+
 /* CSS RESET */
 /* http://meyerweb.com/eric/tools/css/reset/ 
     v2.0 | 20110126
@@ -52,23 +54,28 @@ table {
             CUSTOM CSS
 ********************************* */
 body {
-    background: #1e1e1e;
+    background: #F8F9FA;
 }
 
 .wrapper {
-    background: rgba(30, 30, 30, 0.8);
+    background: rgba(30, 30, 30, 0.9);
 }
 
-/* Change h1, h2 and p text color */
-h1, h3, p {
-    color: #fff;
+/* Add background image to the header */
+#dashboard {
+    background: url(images/ash_pikachu.jpg) no-repeat;
+    background-position: top;
+    background-size: cover;
 }
 
-/* Style the h3 text */
-h3 {
-    font-size: 19.2px;
-    font-family: "Roboto", sans-serif;
-    margin-bottom: 50px;
+p {
+    font-family: "Open Sans", sans-serif;
+    color: #F8F9FA;
+}
+
+/* Style the p text in the welcome section*/
+#welcome-section p {
+    margin-bottom: 20px;
 }
 
 /* Change h2 font size */
@@ -81,14 +88,92 @@ h2 {
 
 /* Add style to the heading text */
 h1 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 33.18px;
+    font-family: "Audiowide", sans-serif;
+    font-size: 39.81px;
+    font-weight: 900;
+    color: #F8F9FA;
+    line-height: 1.1;
+    margin-top: -100px;
+}
+
+#welcome-section h1 {
+    margin-bottom: 50px;
+}
+
+/* Style the container */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 30px;
+}
+
+/*************************************
+            Navigation 
+**************************************/
+.open {
+    visibility: hidden;
+}
+
+.toggler-icon {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    cursor: pointer;
+    padding-right: 7px;
+    border: 1px solid #e63946;
+    border-radius: 50px;
+    /* width: 70px; */
+    margin-bottom: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Style user icon */
+.fa-circle-user {
+    color: #e63946;
+    font-size: 26px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* style the log out icon */
+.fa-right-from-bracket {
+    padding-left: 5px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.navbar-container {
+    padding: 20px;
+}
+
+#nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    background: #E63946;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #1e1e1e;
+    font-family: "Lato", sans-serif;
     font-weight: bold;
 }
 
+.nav-link:hover {
+    color: #F8F9FA;
+}
+/* *********************** Navigation Styles End ******************************* */
+
 /**************** Style the login page ***************/
 #login {
-    font-family: "Lato", sans-serif;
+    font-family: "Open Sans", sans-serif;
     background: rgb(30, 30, 30) url(images/pikachu-sign-in-small.png) no-repeat;
     background-size: 110%;
     background-position: top;
@@ -106,22 +191,14 @@ h1 {
 
 /* Style the username */
 .user-name {
-    color: #fff;
+    color: #F8F9FA;
     text-transform: uppercase;
     padding-left: 10px;
+    font-family: "Audiowide", sans-serif;
 }
 
 .pokedex-user {
     text-transform: capitalize;
-}
-
-/* Style the form heading */
-h1 {
-    margin-bottom: 20px;
-    font-family: "Montserrat", sans-serif;
-    font-size: 39.81px;
-    font-weight: 600;
-    color: #cbf3f0;
 }
 
 /* Style the form background container */
@@ -156,88 +233,85 @@ h1 {
 }
 
 /* Style the input fields */
-.input-fields input {
+.input-fields {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.input-fields input {
     background-color: transparent;
-    border: 1px solid #2EC4B6;
+    border: 1px solid #F4A261;
     border-radius: 15px;
     padding: 10px 35px;
     font-size: 17.6px;
     font-style: italic;
     outline: none;
-    color: #fff;
+    color: #F8F9FA;
 }
 
 /* Set focus state for input fields */
 .input-fields input:focus {
-    border: 2px solid #9cf3e5;
+    border: 2px solid #ecbe99;
 }
 
 /* Style the login button */
 #login-form button {
     width: 50%;
-    padding: 10px 0;
-    border: none;
-    border-radius: 15px;
-    color: #fff;
-    background: #FF9F1C;
-    font-weight: 900;
-    font-family: "Lato", sans-serif;
-    font-size: 17.6px;
     margin-bottom: 20px;
 }
 
 /* Add style to the forgot password link */
 #forgot-password {
-    margin: 10px 0 60px 0;
+    margin: 10px 0 30px 0;
     font-size: 17.6px;
     font-style: italic;
-    color: #cbf3f0;
+    color: #F4A261;
     text-decoration: none;
 }
 
 /* Style the sign up link */
 #sign-up {
     font-style: italic;
-    color: #cbf3f0;
+    color: #F4A261;
     font-size: 17.6px;
     text-decoration: none;
 }
 
 /* Change color for the text with the id new account */
 #new-account {
-    color: #2EC4B6;
+    color: #F8F9FA;
     font-size: 17.6px;
 }
 
 /* Add margin to the password input fields */
-#confirmpassword {
+/* #confirmpassword {
     margin: 30px 0;
-}
+} */
 
 /* Change the color for the text already have an account */
 .existing-account {
-    color: #2EC4B6;
-    margin-bottom: 20px;
+    color: #F8F9FA;
+    margin: 10px;
     font-size: 17.6px;
 }
 
 /* Style the existing account link */
 .existing-account-login {
-    color: #cbf3f0;
+    color: #F4A261;
     text-decoration: none;
     font-size: 17.6px;
 }
 
 .policy {
-    color: #2EC4B6;
-    margin-bottom: 40px;
+    color: #F8F9FA;
+    margin-bottom: 20px;
     font-size: 17.6px;
 }
 
 .policy-link {
-    color: #cbf3f0;
+    color: #F4A261;
     text-decoration: none;
     font-size: 17.6px;
 }
@@ -252,12 +326,12 @@ h1 {
 
 .name-field {
     background-image: url(images/user-icon.svg);
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 .email-field {
     background-image: url(images/mail.svg);   
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 #userPassword,
@@ -271,7 +345,7 @@ h1 {
 
 /* Style the input fields place holder text */
 input::placeholder {
-    color: #cbf3f0;
+    color: #ecbe99;
     opacity: 0.9;
 }
 
@@ -284,7 +358,36 @@ input::placeholder {
 .error {
     color: red;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin: 10px 0;
+}
+
+/* style the success page */ 
+#success {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(238, 238, 238);
+    min-height: 100vh;
+}
+
+.success-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 30px;
+    background: rgb(30, 30, 30);
+    border-radius: 10px;
+    margin: 0 10px;
+    /* width: 50%; */
+    line-height: 1.2;
+    text-align: center;
+}
+
+.success-message p {
+    font-weight: 900;
+    font-size: 19px;
+    margin-bottom: 35px;
 }
 
 /* style the welcome section */
@@ -297,36 +400,72 @@ input::placeholder {
 
 /* style the main banner */
 #main-banner {
-    position: relative;
-    background: rgb(118, 255, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background: linear-gradient(to top, #264653, #3c6e82);
 }
 
-#main-banner h2 {
-    padding: 20px 100px 20px 0;
-}
-
-#banner-pokemon {
-    position: absolute;
-	left: 250px;
-    top: -60px;
+#main-banner h4 {
+    color: #F8F9FA;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    font-size: 23.04px;
+    /* padding: 20px 100px 20px 0; */
 }
 
 #banner-pokemon img {
-    height: 125px;
+    height: 100px;
 }
-/* style the pokemon cards */
-.thumbnail {
-    position: relative;
-    background: #6fd70b;
-    border-radius: 10px;
-    padding: 20px 50px;
+
+/* Add margin to the enter pokeland link */
+#pokeland-link {
+    margin: 0 0 100px 0;
+}
+
+/* Style the Pokemon display */
+#pokemon-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 70px;
+    row-gap: 100px;
+    padding: 50px 0;
+    margin: 0 auto;
+}
+
+/* center the load more Pokemon button */
+.load-pokemon-btn {
+    display: flex;
+    margin: 50px auto;
     cursor: pointer;
+}
+
+/* style the pokemon cards */
+.thumbnail-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #264653;
+    border-radius: 10px;
+    /* padding: 20px 0px 0px 0px; */
+    cursor: pointer;
+    width: 250px;
     transition: all 0.5s ease-in-out;
+}
+.thumbnail-wrapper span:nth-child(2) {
+    display: none;
+}
+
+.thumbnail {
+    margin-bottom: 10px;
 }
 
 .thumbnail img {
-    background: rgba(229, 255, 196, 0.8);
-    border-radius: 10px;
+    background: #142d38;
+    border-radius: 0 0 10px 10px;
     padding: 5px 20px;
     height: 125px;
 }
@@ -340,6 +479,13 @@ input::placeholder {
 .pokemon-description {
     width: 160px;
     text-align: center;
+    /* line-height: 1.2; */
+    font-family: "Share Tech Mono", monospace;
+}
+
+.card-title {
+    color: #F8F9FA;
+    font-weight: bold;
 }
 
 /* style the overlay */
@@ -360,13 +506,15 @@ input::placeholder {
 
 /* Add margin to the overlay button */
 #overlay button {
-    margin-top: 20px;
+    margin-top: 35px;
+    margin-bottom: 80px;
 }
 
 #overlay p {
+    font-family: "Share Tech Mono", monospace;
     padding: 50px 25px;
     background: rgba(30, 30, 30, 0.7);
-    border: 1px solid  rgba(118, 255, 0, 0.7);
+    border: 1px solid  #F4A261;
     border-radius: 10px;
     width: 300px;
     margin: 0 15px;
@@ -377,7 +525,7 @@ input::placeholder {
 #overlay img {
     height: 300px;
     margin-bottom: -50px;
-    filter: drop-shadow(10px 0 10px rgb(255, 255, 255));
+    filter: drop-shadow(10px 0 10px #F8F9FA);
 }
 
 #overlay button {
@@ -388,35 +536,59 @@ input::placeholder {
 /* add style to buttons */
 .load-pokemon-btn,
 #pokeland-link,
-#overlay button {
+#overlay button,
+#go-login,
+#login-form button {
     padding: 10px 15px;
     border: none;
     border-radius: 10px;
-    background: rgb(0, 140, 255);
-    font-weight: 900;
+    background: #E63946;
     font-family: "Lato", sans-serif;
-    /* letter-spacing: 1px; */
     font-size: 17.6px;
-    color: rgb(30, 30, 30);
     text-decoration: none;
+    color: #F8F9FA ;
+    font-weight: 600;
+    font-family: "Open Sans", sans-serif;
+    cursor: pointer;
 }
 
 /* style the caught pokemon */
-.caught-message img {
-    background: none;
+.caught {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    background: linear-gradient(to top, #E63946, #F4A261);
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    padding: 5px 0;
 }
 
-.caught-message {
-    position: absolute;
-    background: rgba(158, 158, 158, 0.9);
-    top: 10px;
-    padding: 20px 20px;
-    border-radius: 10px 0 0 10px;
+@keyframes endless-in {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.caught img {
+    animation: endless-in 5 4s ease-in-out;
+}
+
+.caught p {
+    color: #F8F9FA;
+    font-size: 16px;
 }
 
 /******************* Pokeland Styles *******************/
 #command-section {
-    background: green;
+    background: linear-gradient(to top, #264653, #3c6e82);
     padding: 15px 0
 }
 
@@ -434,11 +606,18 @@ input::placeholder {
     gap: 10px;
 }
 
+.pokemon-number {
+    color: #F8F9FA;
+    font-family: "Open Sans", sans-serif;
+    font-size: 27.65px;
+    text-align: center;
+    margin-top: 100px;
+}
+
 /* ************************** Carousel Style ***************************** */
 .card h2{
-    margin-top: 100px;
     margin-bottom: 50px;
-    color: #fff;
+    color: #F8F9FA;
 }
 .carousel-container {
     width: 300px;
@@ -449,9 +628,7 @@ input::placeholder {
 
 .card {
     display: none;
-    padding: 20px;
     border-radius: 10px;
-    /* background: rgba(30, 30, 30, 0.8); */
 }
 
 .card.center {
@@ -459,7 +636,7 @@ input::placeholder {
 }
 
 .caught-pokemon {
-    background: rgba(229, 255, 196, 0.8);
+    background: #264653;
     padding: 10px;
     border-radius: 10px;
 } 
@@ -469,6 +646,7 @@ input::placeholder {
 }
 
 .nav-arrow {
+    color: #E63946;
     position: absolute;
     top: 50%;
     cursor: pointer;
@@ -490,7 +668,7 @@ input::placeholder {
 }
 
 .poke-commands button {
-    background: #fff;
+    background: #E63946;
     padding: 7px;
     border: none;
     border-radius: 100%;
@@ -514,7 +692,7 @@ input::placeholder {
 
      /* Style the form background container */
     #form-background {
-        height: 100%;
+        height: 100vh;
         width: 40%;
         background: linear-gradient(to right, rgba(30, 30, 30, 0.9), rgba(30, 30, 30, 0.9));
     }
@@ -522,20 +700,6 @@ input::placeholder {
     /* Add style to the login form */
     #login-form {
     margin-top: 0;
-    }
-
-    /* Style the login button */
-    #login-form button {
-        font-size: 22px;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 1s ease-in-out;
-    }
-
-    #login-form button:hover {
-        background: #f97c07;
-        color: #fff;
-        transform: scale(0.9);
     }
 
     /* Add style to the forgot password link */
@@ -557,17 +721,50 @@ input::placeholder {
         background-position: 7px 10px;   
     }
 
+    /* add hover to btns */
+    .load-pokemon-btn:hover,
+    #pokeland-link:hover,
+    #overlay button:hover,
+    #go-login:hover,
+    #login-form button:hover {
+        background: linear-gradient(to top, #E63946, #F4A261);
+        color: #1e1e1e;
+    }
+
+    /* style the success page */
+    #go-login { 
+        font-size: 22px;
+    }
+
+    .success-message {
+        width: 40%;
+        align-items: center;
+    }
+
+    .success-message p {
+        font-size: 25px;
+    }
+
     /* Add background image to the pokeland page */
     #pokeland {
         background: url(images/pokeland.png) no-repeat;
         background-position: top;
         background-size: cover;
     }
+
+    #pokemon-command {
+        gap: 90px;
+    }
+
     /* Add background image to the header */
     #dashboard {
         background: url(/images/ash_and_pokemon.png) no-repeat;
         background-position: top;
         background-size: cover;
+    }
+
+    #pokemon-display {
+        max-width: 1500px;
     }
 
     /* style the navbar */
@@ -584,20 +781,14 @@ input::placeholder {
         max-width: 700px;
     }
 
-    /* Style the h3 text */
-    h3 {
-        font-size: 22px;
-    }
-
     /* Change h2 font size */
     h2 {
         font-size: 31.68px;
     }
 
-    /* Add style to the heading text */
+    /* Style the form heading */
     h1 {
         font-size: 54.74px;
-        font-weight: bold;
     }
 
     /* Change p text size */
@@ -606,17 +797,16 @@ input::placeholder {
     }
 
     /* style the main banner */
-    #main-banner h2 {
-        padding: 20px 300px 20px 0;
-    }
-
-    #banner-pokemon {
-        left: 1090px;
-        top: -45px;
+    #main-banner h4 {
+        font-size: 31.68px;
     }
 
     /* style the pokemon cards */
-    .thumbnail:hover {
+    .thumbnail-wrapper {
+        width: 300px;
+    }
+
+    .thumbnail-wrapper:hover {
         transform: scale(105%);
     }
 
@@ -631,13 +821,9 @@ input::placeholder {
     }
 
     /* style the caught message */
-    .caught-message {
-        top: 15px;
-        padding: 25px 20px;
+    .caught p {
+        font-size: 18px;
     }
-
-    /******************* Pokeland Styles *******************/
-
 
     /* ************************** Carousel Style ***************************** */
     .carousel-container {
@@ -658,6 +844,10 @@ input::placeholder {
         justify-content: space-around;
     }
 
+    .poke-commands button:hover {
+        background: linear-gradient(to top, #E63946, #F4A261);
+    }
+
     .poke-commands img {
         height: 35px;
         cursor: pointer;
@@ -665,6 +855,12 @@ input::placeholder {
 
     .nav-arrow {
         top: 50%;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .nav-arrow:hover {
+        color: #F4A261;
+        transform: scale(108%);
     }
 
     .nav-arrow.left {
