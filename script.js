@@ -15,7 +15,7 @@ const loginForm = document.getElementById('login-form');
 
 // get the p tags for the error messages
 const loginError = document.getElementById('loginError');
-const  signUpError = document.getElementById('signUpError');
+const   signUpError = document.getElementById('signUpError');
 
 // get the sign in btn
 const loginBtn = document.getElementById('loginBtn');
@@ -56,33 +56,22 @@ if(newAccountBtn) {
         const signUpName = document.getElementById('signUpName').value;
         const signUpEmail = document.getElementById('signUpEmail').value;
         const confirmPassword = document.getElementById('confirmPassword').value;
-        const signUpPassword = document.getElementById('signUpPassword').value;
-        // const emailPattern = /[^a-zA-Z0-9.,?:\-@%]/;
 
-        if(!signUpName || !signUpEmail || !signUpPassword){
-            signUpError.textContent = 'Please fill in all fields!';
+        userInfo = {name: signUpName, email: signUpEmail, password: confirmPassword};
 
-            // ensure the passwords are the same
-        }else if(confirmPassword !== signUpPassword) {
-            signUpError.textContent = 'Passwords do not match!';
-        }else {
-            signUpError.textContent = '';
-
-            userInfo = {name: signUpName, email: signUpEmail, password: confirmPassword};
-
-            localStorage.setItem('userLogin', JSON.stringify(userInfo));
-
-            window.location.href = "success.html"
-        }
+        localStorage.setItem('userLogin', JSON.stringify(userInfo));
+        
     })
 }
 
-// validate the login form
 if(loginBtn) {
     loginBtn.addEventListener('click', function() {
         // get the value from the login input fields
         const userName = document.getElementById('userName').value;
         const userPassword = document.getElementById('userPassword').value;
+
+        // get the p element to display an error message
+        const loginError = document.getElementById('loginError');
 
         if(userName !== userInfo.name || userPassword !== userInfo.password) {
             loginError.textContent = 'Invalid username or password!'
@@ -182,13 +171,12 @@ async function getPokeSprite(json, url) {
         
         // this variable will be used as a condition 
         // to get the pokemon types
-        const types = 2;
+        const num = 2;
 
         // this variable will store the pokemon types
         let pokeTypes = '';
 
-
-        if(pokeApiJson.types.length < types){
+        if(pokeApiJson.types.length < num){
             pokeTypes = pokeApiJson.types[0].type.name;
             fetchPokeData[pokeApiJson.name].pokemonType = pokeTypes;
         } else {
@@ -196,49 +184,28 @@ async function getPokeSprite(json, url) {
             fetchPokeData[pokeApiJson.name].pokemonType = pokeTypes;
         }
 
-        const moves = 5;
-        
-            for(let j = 0; j < 20; j++) {
-                if(pokeApiJson.moves.length > moves){
-                    fetchPokeData[pokeApiJson.name].pokemonMoves.push(pokeApiJson.moves[j].move.name) 
-                }else {
-                    fetchPokeData[pokeApiJson.name].pokemonMoves.push(
-                        pokeApiJson.moves[0].move.name,
-                        pokeApiJson.moves[1].move.name,
-                        pokeApiJson.moves[2].move.name,
-                        pokeApiJson.moves[3].move.name) 
-                }
+        console.log(pokeApiJson)
+        for(let j = 0; j < 20; j++) {
+            pokeAttacks.pish(pokeApiJson.moves[j].move.name);
         }
-            console.log(fetchPokeData[pokeApiJson.name].pokemonName + ' ' + fetchPokeData[pokeApiJson.name].pokemonMoves)
 
+        console.log(pokeAttacks)
 
-        // console.log(pokeApiJson)
 
         // create the html template to display pokemon
         const thumbnailHTML = `
-            <div class="thumbnail-wrapper" data-pokeName=${pokemonData.pokemonName}>
-                <div class="thumbnail" data-pokeName=${pokemonData.pokemonName}>
-                    <img src="${pokemonData.pokeImage}" alt="" data-pokeName=${pokemonData.pokemonName}>
-                    <div class="card-body">
-                        <p class="pokemon-name card-title" data-pokeName=${pokemonData.pokemonName}>${pokemonData.pokemonName}</p>
-                        <p class="pokemon-description" data-pokeName=${pokemonData.pokemonName}>${pokemonData.pokemonType} type pokémon with ${pokeApiJson.moves.length} moves</p>
-                    </div>
+            <div class="thumbnail" data-pokeName=${pokemonData.pokemonName}>
+                <img src="${pokemonData.pokeImage}" alt="" data-pokeName=${pokemonData.pokemonName}>
+                <div class="card-body">
+                    <p class="pokemon-name" data-pokeName=${pokemonData.pokemonName}>${pokemonData.pokemonName}</p>
+                    <p class="pokemon-description" data-pokeName=${pokemonData.pokemonName}>${pokemonData.pokemonType} type pokémon with ${pokeApiJson.moves.length} moves</p>
                 </div>
-                <span id="${pokemonData.pokemonName}"></span>
-            </div>`;
+            </div>`
 
         // add the template to the page
         if(pokeDisplay) {
             pokeDisplay.innerHTML+= thumbnailHTML;
         }
-
-        pokeArray.forEach((caught) => {
-            if(caught.name == pokemonData.pokemonName) {
-                const thumbnailContainer = document.getElementById(pokemonData.pokemonName)
-                // console.log(pokemonData.pokemonName);
-                thumbnailContainer.parentNode.classList.add('pokeball')
-            }
-        })
     }
     
     // get pikachu sprite
@@ -249,6 +216,7 @@ async function getPokeSprite(json, url) {
     if(bannerPokemon) {
         bannerPokemon.innerHTML = `<img src="${pikachu.sprites.other["official-artwork"].front_default}" alt="" height="200px">`;
     }
+    
 }
 
 // this function load more pokemon to the page when the load more btn is clicked
@@ -271,7 +239,7 @@ function loadPokemon(next) {
 // create an overlay for the large pokemon display
 if(pokeDisplay) {
     pokeDisplay.addEventListener('click', function(event) {
-        if(event.target.matches('.thumbnail-wrapper') || event.target.matches('.thumbnail') || event.target.matches('.thumbnail img') || event.target.matches('.thumbnail p')) {
+        if(event.target.matches('.thumbnail') || event.target.matches('.thumbnail img') || event.target.matches('.thumbnail p')) {
 
             // create a div container for the overlay
             const overlay = document.createElement('div');
@@ -292,9 +260,7 @@ if(pokeDisplay) {
             const pokemoves = [event.target.dataset.pokemove1, event.target.dataset.pokemove2, event.target.dataset.pokemove3, event.target.dataset.pokemove4]
                                         
             // call catchPokemon() to display a message when a pokemon is caught
-            catchPokemon(event.target, fetchPokeData[event.target.dataset.pokename].pokemonName, fetchPokeData[event.target.dataset.pokename].pokeImage, pokemoves)
-            // console.log(event.target);
-            
+            catchPokemon(event.target, event.target.dataset.pokename, event.target.dataset.pokeimg, pokemoves)
 
             // remove the overlay 
             overlay.addEventListener('click', removeOverlay);
@@ -312,31 +278,13 @@ function catchPokemon(pokemon, name, image, moves) {
     document.getElementById('catch-pokemon').addEventListener('click', function(event) {
         // prevent the removeOverlay() from running when the button is clicked 
         event.stopPropagation();
-
-        // get the the span tag which has the id of the pokemon name
-        const caught = document.getElementById(name);
-
-        // add a class to the span tag
-        caught.className = 'caught';
-
-        // get the span tag parent container
-        const parentElement = caught.parentNode;
-
-        // add a class to the span tag parent container
-        parentElement.classList.add('pokeball');
         
         // create a message to display when a pokemon is caught
-        caught.innerHTML += `
-                <img src="images/Pokeball.png" alt="" height="30px">
-                <p>You caught <span class="pokemon-name">${name}</span>!</p>`;
-
-        // add style to the thumbnail when pokemon is caught
-        if(caught.parentNode.classList.contains('pokeball')) {
-            caught.style.display = 'flex';
-            caught.parentNode.style.backgroundColor = '#0e1f26ff';
-            parentElement.children[0].style.opacity = '0.1'
-            
-        }
+        pokemon.innerHTML += `
+            <div class="caught-message">
+                <img src="images/Pokeball.png" alt="" height="160px">
+                <p>You caught <span class="pokemon-name">${name}</span>!</p>
+            </div>`;
 
         // create the object with info of the caught pokemon
         const caughtPokemon = {name, image, moves};
@@ -349,9 +297,8 @@ function catchPokemon(pokemon, name, image, moves) {
         
         // call updateTotalPokemon() to update the count in real time
         updateTotalPokemon();
-    })    
+    })         
 }
-
 
 // this function update the number of pokemon shown that are in pokeland
 function updateTotalPokemon() {
@@ -486,47 +433,25 @@ showCard(0);
 // call releasePokemon() to release pokemon when the button is clicked
 releasePokemon();
 
-// this function release pokemon
+// this function releases a pokemon
 function releasePokemon() {
     // get the release btns
     const releaseBtn = document.querySelectorAll('#release');
 
     // loop through the list of release btns and add a click event
-    releaseBtn.forEach((btn) => {
-        btn.addEventListener('click', function() {
+    releaseBtn.forEach((button) => {
+        button.addEventListener('click', function() {
             const currentCard = document.querySelector('.center');
             // filter through the array to find the matching 
             // pokemon to be removed from the array
             pokeArray = pokeArray.filter(pokemon => pokemon.name !== currentCard.dataset.poke);
-            
 
             // save the updated array to local storage
-            localStorage.setItem('troop', JSON.stringify(pokeArray));            
+            localStorage.setItem('troop', JSON.stringify(pokeArray));
 
             // call updateTotalPokemon() to update the count in real time
             updateTotalPokemon();
-
-createCarouselCard();
-showCard(0);
-
-
         })    
-    })
-}
-
-// add hover to the menu icon
-const menu = document.querySelector('.toggler-icon');
-const userIcon = document.querySelector('.fa-circle-user');
-
-if(menu) {
-    menu.addEventListener('mouseover', function() {
-        menu.style.borderColor = '#F4A261'
-        userIcon.style.color = '#F4A261'
-    })
-    
-    menu.addEventListener('mouseout', function() {
-        menu.style.borderColor = '#e63946'
-        userIcon.style.color = '#e63946'
     })
 }
 
