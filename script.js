@@ -186,8 +186,8 @@ async function getPokeSprite(json, url) {
 
         console.log(pokeApiJson)
         for(let j = 0; j < 20; j++) {
-            pokeAttacks.pish(pokeApiJson.moves[j].move.name);
-        }
+            pokeAttacks.push(pokeApiJson.moves[j].move.name);
+        }   
 
         console.log(pokeAttacks)
 
