@@ -196,16 +196,20 @@ async function getPokeSprite(json, url) {
             fetchPokeData[pokeApiJson.name].pokemonType = pokeTypes;
         }
 
-        // const moves = 5;
+        const moves = 5;
         
-        //     for(let j = 0; j < 20; j++) {
-        //         if(pokeApiJson.moves.length < moves){
-        //             fetchPokeData[pokeApiJson.name].pokemonMoves.push(pokeApiJson.moves[j].move.name) 
-        //         }else {
-        //             fetchPokeData[pokeApiJson.name].pokemonMoves.push(pokeApiJson.moves[j].move.name) 
-        //         }
-        // }
-        //     console.log(fetchPokeData[pokeApiJson.name].pokemonName + ' ' + fetchPokeData[pokeApiJson.name].pokemonMoves)
+            for(let j = 0; j < 20; j++) {
+                if(pokeApiJson.moves.length > moves){
+                    fetchPokeData[pokeApiJson.name].pokemonMoves.push(pokeApiJson.moves[j].move.name) 
+                }else {
+                    fetchPokeData[pokeApiJson.name].pokemonMoves.push(
+                        pokeApiJson.moves[0].move.name,
+                        pokeApiJson.moves[1].move.name,
+                        pokeApiJson.moves[2].move.name,
+                        pokeApiJson.moves[3].move.name) 
+                }
+        }
+            console.log(fetchPokeData[pokeApiJson.name].pokemonName + ' ' + fetchPokeData[pokeApiJson.name].pokemonMoves)
 
 
         // console.log(pokeApiJson)
