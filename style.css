@@ -232,6 +232,41 @@ h1 {
     align-items: center;
 }
 
+/* Target auto-filled input fields */
+input:-webkit-autofill {
+    background-color: transparent !important; /* Keep the background transparent */
+    color: #F8F9FA !important; /* Ensure the text color matches your design */
+    -webkit-text-fill-color: #F8F9FA !important; /* Force autofill text color */
+    -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset !important; /* Remove yellow autofill background */
+    transition: background-color 5000s ease-in-out 0s; /* Prevent background from reappearing */
+}
+
+/* Username field */
+.name-field:-webkit-autofill {
+    background-image: url(images/user-icon.svg);
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: 8px;
+}
+
+/* Email field */
+.email-field:-webkit-autofill {
+    background-image: url(images/mail.svg);
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: 8px;
+}
+
+/* Password field */
+#userPassword:-webkit-autofill,
+#signUpPassword:-webkit-autofill,
+#confirmPassword:-webkit-autofill {
+    background-image: url(images/password-lock.svg) !important;
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: 8px;
+}
+
 /* Style the input fields */
 .input-fields {
     display: flex;
@@ -320,17 +355,23 @@ h1 {
 .name-field,
 .email-field {
     background-repeat: no-repeat;
-    background-size: 22px;
+    background-size: 20px;
     background-position: 8px;   
 }
 
 .name-field {
     background-image: url(images/user-icon.svg);
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: 8px;   
     /* margin-bottom: 30px; */
 }
 
 .email-field {
-    background-image: url(images/mail.svg);   
+    background-image: url(images/mail.svg);  
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: 8px;
     /* margin-bottom: 30px; */
 }
 
@@ -339,7 +380,7 @@ h1 {
 #confirmPassword {
     background-image: url(images/password-lock.svg);
     background-repeat: no-repeat;
-    background-size: 20px;
+    background-size: 15px;
     background-position: 8px;   
 }
 
@@ -712,12 +753,12 @@ input::placeholder {
 
     /* Position the form icons into the input field and add style */
     .name-field {
-        background-size: 25px;
+        background-size: 20px;
         background-position: 7px 10px;   
     }
 
     #userPassword {
-        background-size: 22px;
+        background-size: 15px;
         background-position: 7px 10px;   
     }
 
@@ -817,7 +858,7 @@ input::placeholder {
 
     /* Change the size of the pokemon on the overlay */
     #overlay img {
-        height: 600px;
+        height: 550px;
     }
 
     /* style the caught message */
