@@ -16,7 +16,7 @@
     <!-- Flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 
-    <title>Pokédex - Pokéland</title>
+    <title>PokéHub - Pokéland</title>
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
     <header class="bg-[url(images/pokeland.png)] bg-cover bg-center bg-no-repeat">
@@ -80,21 +80,21 @@
                 <h3 class="text-center text-2xl md:text-3xl font-bold mb-8 capitalize">You have <span id="pokeCount">0</span> Pokémon</h3>
 
                 <!-- Carousel -->
-                <div id="default-carousel" class="relative w-full max-w-[750px] md:overflow-hidden mx-auto p-5" data-carousel="">
+                <div id="default-carousel" class="relative w-full min-h-screen md:min-h-[0px] max-w-[750px] overflow-hidden mx-auto p-5" data-carousel="">
                     <!-- Carousel wrapper --> 
                     <div class="relative h-56 rounded-lg md:h-96 mx-auto cards-container"></div>
 
                     <!-- Slider controls -->
-                    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full pl-20 cursor-pointer group focus:outline-none hidden md:block" data-carousel-prev>
-                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-500">
+                    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-1/2 md:h-full pl-15 md:pl-20 cursor-pointer group focus:outline-none" data-carousel-prev>
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full text-white bg-red-600/40 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-500">
                             <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
                             </svg>
                             <span class="sr-only">Previous</span>
                         </span>
                     </button>
-                    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full pr-20 cursor-pointer group focus:outline-none hidden md:block" data-carousel-next>
-                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-500">
+                    <button type="button" class="absolute top-0 end-0 z-30  h-1/2 md:h-full pr-15 md:pr-20 cursor-pointer group focus:outline-none" data-carousel-next>
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full text-white bg-red-600/40 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-500">
                             <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                             </svg>

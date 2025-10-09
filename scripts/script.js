@@ -527,14 +527,14 @@ function createCarouselCard() {
                     </div>
                 </div>
                 <div class="poke-commands flex justify-around md:p-10">
-                    <button id="train" class="p-2 bg-blue-600 rounded-full hover:bg-blue-700 focus:ring-4 focus:ring-blue-500" data-tooltip-target="tooltip-train-${pokemon.name}" data-tooltip-placement="bottom"><img src="images/train.svg" alt="Train" class="h-6 w-6"></button>
+                    <button id="train" class="p-2 bg-blue-600 rounded-full hover:bg-blue-700 focus:ring-4 focus:ring-blue-500 z-100" data-tooltip-target="tooltip-train-${pokemon.name}" data-tooltip-placement="bottom"><img src="images/train.svg" alt="Train" class="h-6 w-6"></button>
                     <div id="tooltip-train-${pokemon.name}" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-blue-700 rounded-lg shadow-xs opacity-0 tooltip dark:bg-blue-700">
-                        Train ${pokemon.name} to prepare for battle!
+                        Train <span class="capitalize">${pokemon.name}</span> to prepare for battle!
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
                     <button id="battle" class="p-2 bg-green-600 rounded-full hover:bg-green-700 focus:ring-4 focus:ring-green-500 cursor-not-allowed opacity-40" disabled="true" data-tooltip-target="tooltip-battle-${pokemon.name}" data-tooltip-placement="bottom"><img src="images/battle.svg" alt="Battle" class="h-6 w-6"></button>
                     <div id="tooltip-battle-${pokemon.name}" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-green-700 rounded-lg shadow-xs opacity-0 tooltip dark:green-700">
-                        Battle with ${pokemon.name} (coming soon!)
+                        Battle with <span class="capitalize">${pokemon.name}</span> (coming soon!)
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
                     <button id="release" class="p-2 bg-red-600 rounded-full hover:bg-red-700 focus:ring-4 focus:ring-red-500" data-tooltip-target="tooltip-release-${pokemon.name}" data-tooltip-placement="bottom"><img src="images/phoenix.png" alt="Release" class="h-6 w-6"></button>
@@ -542,7 +542,7 @@ function createCarouselCard() {
                         Release <span class="capitalize">${pokemon.name}</span>
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
-                    <button id="getInfo" data-pokename="${pokemon.name}" class="p-2 bg-yellow-500 rounded-full hover:bg-yellow-600 focus:ring-4 focus:ring-yellow-400" data-tooltip-target="tooltip-info-${pokemon.name}" data-tooltip-placement="bottom"><img src="images/info.png" alt="Info" class="h-6 w-6"></button>
+                    <button id="getInfo" data-pokename="${pokemon.name}" class="p-2 bg-yellow-500 rounded-full hover:bg-yellow-600 focus:ring-4 focus:ring-yellow-400 z-100" data-tooltip-target="tooltip-info-${pokemon.name}" data-tooltip-placement="bottom"><img src="images/info.png" alt="Info" class="h-6 w-6"></button>
                     <div id="tooltip-info-${pokemon.name}" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-yellow-600 rounded-lg shadow-xs opacity-0 tooltip dark:bg-yellow-600">
                         View <span class="capitalize">${pokemon.name}</span>'s stats
                         <div class="tooltip-arrow" data-popper-arrow></div>
