@@ -10,85 +10,105 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-    <!-- Animate.css -->
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Flowbite -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 
     <title>Pokédex - Pokéland</title>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">    
 </head>
-<body id="pokeland">
-    <header>
-        <div class="wrapper">
-            <!-- Nav Bar start -->
-            <nav class="navbar">
-                <div class="navbar-container">
-                    <span class="toggler-icon">
-                        <i class="fa-solid fa-circle-user"></i>
-                        <span class="user-name"></span>
-                    </span>
-                    <div class="open" id="navbarNav">
-                        <ul id="nav-links">
-                            <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-                            <li class="nav-item"><a class="nav-link" href="pokeland.html">Enter Pokéland</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Manage Account</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.html">Log out <span><i class="fa-solid fa-right-from-bracket"></i></span></a></li>
-                        </ul>
+<body class="bg-gray-900 text-white min-h-screen">
+    <header class="bg-[url(images/pokeland.png)] bg-cover bg-center bg-no-repeat">
+        <div class="bg-gray-900/80 pt-5 pb-20">
+            <!-- Navbar -->
+            <nav class="flex justify-end px-8">
+                <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-600" type="button">
+                    <span class="sr-only">Open user menu</span>
+                    <div class="relative w-10 h-10">
+                        <i class="fa-solid fa-circle-user text-4xl text-red-600"></i>
+                    </div>
+                </button>
+
+                <!-- Dropdown menu -->
+                <div id="dropdownAvatar" class="z-10 hidden bg-gray-700 divide-y divide-gray-600 rounded-lg shadow w-44">
+                    <div class="px-4 py-3 text-sm text-white">
+                        <div class="font-medium pokedex-user capitalize">User</div>
+                    </div>
+                    <ul class="py-2 text-sm text-gray-200" aria-labelledby="dropdownUserAvatarButton">
+                        <li>
+                            <a href="dashboard.html" class="block px-4 py-2 hover:bg-gray-600 hover:text-white">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="pokeland.html" class="block px-4 py-2 hover:bg-gray-600 hover:text-white">Pokéland</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block px-4 py-2 text-gray-400 cursor-not-allowed">Battle Arena <br> <span>(coming soon)</span></a>
+                        </li>
+                    </ul>
+                    <div class="py-2">
+                        <a href="index.html" class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-600 hover:text-white">
+                            Sign out <i class="fa-solid fa-right-from-bracket ml-2"></i>
+                        </a>
                     </div>
                 </div>
             </nav>
-            <!-- Nav Bar end --> 
 
             <!-- Welcome Section -->
-            <section>
-                <div class="container" id="welcome-section">
-                    <h1><span class="pokedex-user"></span>, you are in Pokéland!</h1>
-                    <p>This is where you command all the Pokémon you caught. These are your options:</p>
-                </div>
-            </section>
+            <div class="text-center mt-16 px-4">
+                <h1 class="text-4xl md:text-5xl font-bold text-yellow-400"><span class="pokedex-user capitalize"></span>, you are in Pokéland!</h1>
+
+                <p class="md:max-w-md pt-5 mx-auto text-lg text-gray-300">This is where you command all the Pokémon you caught. These are your options:</p>
+            </div>
         </div>
     </header>
     <main>
-        <div class="wrapper">
-            <!-- Commands Section -->
-            <section id="command-section">
-                <div id="pokemon-command">
-                    <div class="command">
-                        <p>Train</p>
-                        <img src="images/train.svg" alt="" height="50px">
-                    </div>
-                    <div class="command">
-                        <p>Battle</p>
-                        <img src="images/battle.svg" alt="" height="50px">
-                    </div>
-                    <div class="command">
-                        <p>Release</p>
-                        <img src="images/phoenix.png" alt="" height="50px">
-                    </div>
-                    <div class="command">
-                        <p>Stats</p>
-                        <img src="images/info.png" alt="" height="50px">
-                    </div>
+        <!-- Commands Section -->
+        <section class="bg-gradient-to-b from-gray-700 to-gray-900 py-8">
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16">
+                <div class="flex flex-col items-center gap-2 text-gray-300"><p>Train</p><img src="images/train.svg" alt="Train" class="h-12 w-12"></div>
+                <div class="flex flex-col items-center gap-2 text-gray-300"><p>Battle</p><img src="images/battle.svg" alt="Battle" class="h-12 w-12"></div>
+                <div class="flex flex-col items-center gap-2 text-gray-300"><p>Release</p><img src="images/phoenix.png" alt="Release" class="h-12 w-12"></div>
+                <div class="flex flex-col items-center gap-2 text-gray-300"><p>Stats</p><img src="images/info.png" alt="Stats" class="h-12 w-12"></div>
+            </div>
+        </section>
+
+        <!-- Caught Pokémon Carousel -->
+        <section class="py-12 min-h-screen">
+            <div class="container mx-auto px-4">
+                <!-- # of Pokemon in Pokeland -->
+                <h3 class="text-center text-2xl md:text-3xl font-bold mb-8 capitalize">You have <span id="pokeCount">0</span> Pokémon</h3>
+
+                <!-- Carousel -->
+                <div id="default-carousel" class="relative w-full max-w-[750px] md:overflow-hidden mx-auto p-5" data-carousel="">
+                    <!-- Carousel wrapper --> 
+                    <div class="relative h-56 rounded-lg md:h-96 mx-auto cards-container"></div>
+
+                    <!-- Slider controls -->
+                    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full pl-20 cursor-pointer group focus:outline-none hidden md:block" data-carousel-prev>
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-500">
+                            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                            </svg>
+                            <span class="sr-only">Previous</span>
+                        </span>
+                    </button>
+                    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full pr-20 cursor-pointer group focus:outline-none hidden md:block" data-carousel-next>
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-500">
+                            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                            </svg>
+                            <span class="sr-only">Next</span>
+                        </span>
+                    </button>
                 </div>
-            </section>
-
-            <!-- Caught Pokémon Carousel -->
-            <section>
-                <div class="container">
-                    <h3 class="pokemon-number">You have <span id="pokeCount">0</span> Pokémon</h3>
-
-                    <div class="carousel-container">
-                        <div class="nav-arrow left"><i class="fa-solid fa-circle-left"></i></div>
-                        <div class="nav-arrow right"><i class="fa-solid fa-circle-right"></i></div>
-
-                        <div id="cards-container"></div>
-                    </div>
-                </div>
-            </section>
-        </div>
+            </div>
+        </section>
     </main>
+    <!-- Flowbite -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="scripts/script.js"></script>
 </body>
-<!-- <script src="dashboard.js"></script> -->
-<script src="script.js"></script>
 </html>

@@ -10,61 +10,87 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-    <!-- Animate.css -->
-      <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Flowbite -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 
     <title>Pokédex - Dashboard</title>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-
 </head>
-<body>
-    <header id="dashboard">
-        <div class="wrapper">
-            <!-- Nav Bar start -->
-            <nav class="navbar">
-                <div class="navbar-container">
-                    <span class="toggler-icon">
-                        <i class="fa-solid fa-circle-user"></i>
-                        <span class="user-name"></span>
-                    </span>
-                    <div class="open" id="navbarNav">
-                        <ul id="nav-links">
-                            <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-                            <li class="nav-item"><a class="nav-link" href="pokeland.html">Enter Pokéland</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Manage Account</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.html">Log out <span><i class="fa-solid fa-right-from-bracket"></i></span></a></li>
-                        </ul>
+<body class="bg-gray-900/80 text-white">
+    <header class="bg-[url(images/ash_and_pokemon.png)] bg-cover bg-center bg-no-repeat">
+        <div class="bg-gray-900/80 pt-5 pb-20">
+            <!-- Navbar -->
+            <nav class="flex justify-end px-8">
+                <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-600" type="button">
+                    <span class="sr-only">Open user menu</span>
+                    <div class="relative w-10 h-10">
+                        <i class="fa-solid fa-circle-user text-4xl text-red-600"></i>
+                    </div>
+                </button>
+
+                <!-- Dropdown menu -->
+                <div id="dropdownAvatar" class="z-10 hidden bg-gray-700 divide-y divide-gray-600 rounded-lg shadow w-44">
+                    <div class="px-4 py-3 text-sm text-white">
+                        <div class="font-medium pokedex-user capitalize">User</div>
+                    </div>
+                    <ul class="py-2 text-sm text-gray-200" aria-labelledby="dropdownUserAvatarButton">
+                        <li>
+                            <a href="dashboard.html" class="block px-4 py-2 hover:bg-gray-600 hover:text-white">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="pokeland.html" class="block px-4 py-2 hover:bg-gray-600 hover:text-white">Pokéland</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block px-4 py-2 text-gray-400 cursor-not-allowed">Battle Arena <br> <span>(coming soon)</span></a>
+                        </li>
+                    </ul>
+                    <div class="py-2">
+                        <a href="index.html" class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-600 hover:text-white">
+                            Sign out <i class="fa-solid fa-right-from-bracket ml-2"></i>
+                        </a>
                     </div>
                 </div>
             </nav>
-            <!-- Nav Bar end --> 
 
             <!-- Welcome Section -->
-            <section>
-                <div class="container" id="welcome-section">
-                    <h1>Welcome, <span class="pokedex-user"></span> to your Pokédex Dashboard!</h1>
-
-                    <p><span id="pokeCount">0</span> Pokémon in Pokéland</p>
-                    <a id="pokeland-link" href="pokeland.html">Enter Pokéland</a>
-                </div>
-            </section>
+            <div class="text-center mt-16">
+                <h1 class="text-4xl md:text-5xl md:w-1/2 mx-auto font-bold text-yellow-400">Welcome, <span class="pokedex-user capitalize"></span> to your PokéHub Dashboard!</h1>
+                <p class="mt-4 text-lg text-gray-300"><span id="pokeCount">0</span> Pokémon in Pokéland</p>
+                <a href="pokeland.html" class="mt-6 inline-block text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Enter Pokéland</a>
+            </div>
         </div>
     </header>
     <main>
         <!-- Gotta Catch 'Em All Section -->
-        <section id="pokemon-section">
-            <div id="main-banner">
-                <h4>Gotta Catch 'Em All</h4>
-                <div id="banner-pokemon"></div>
+        <section class="bg-gray-900">
+            <div class="flex justify-center items-center gap-10 bg-gradient-to-b from-gray-700 to-gray-900">
+                <h4 class="text-2xl md:text-3xl font-bold text-yellow-400">Gotta Catch 'Em All</h4>
+                <div id="banner-pokemon" class="w-24 h-24"></div>
             </div>
 
             <!-- Pokemon Display -->
-            <div id="pokemon-display"></div>
-            <button id="more-pokemon" class="load-pokemon-btn" >more Pokémon...</button>
+            <div id="pokemon-display" class="flex flex-wrap justify-center gap-20 p-8 max-w-7xl mx-auto"></div>
+
+             <!-- Initial Loading Spinner -->
+                <div role="status" id="loading-spinner" class="col-span-full flex justify-center items-center">
+                    <svg aria-hidden="true" class="w-12 h-12 text-gray-600 animate-spin fill-yellow-400" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5424 39.6781 93.9676 39.0409Z" fill="currentFill"/></svg>
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
+            <div class="text-center py-8">
+                <button type="button" id="more-pokemon" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
+                    more Pokémon...
+                </button>
+            </div>
         </section>
     </main>
+    <!-- Flowbite -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="./scripts/script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
