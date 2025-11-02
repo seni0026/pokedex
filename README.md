@@ -1,43 +1,85 @@
-# mtm6302-capstone-seni0026
-Name: Kevon Senior
-Student #: 041124394
-Project: Building a Pokédex for a capstone project
+# PokéHub
 
-# Generate sign up form HTML with Js
-Instead of creating another HTML page for the website to load, I have generated and change the inner HTML of the login form using JavaScript. This way the website has one less page to load which increases its efficiency.
+PokéHub is a web app that lets users sign up, browse Pokémon from the PokéAPI, catch them, and manage a personal collection. Built as a capstone project, this web app focuses on API integration, DOM manipulation, and local storage.
 
-# Problem when generating the HTML for the sign up form
-When generating the HTML for the sign up form, I noticed when the sign up link was clicked, the HTML generated onto the page then quickly disappeared. After taking a step back and analyzed what was happening, when the link was clicked, even though there wasn't any web address to be directed to, it resorted to its default behavior which is to direct the user to another site. 
-# Solution
-By using preventDefault() which professor Adam Jarvis taught about in class, I was able to stop the link from resorting to its natural behavior.
+---
 
-# Create a Pokédex database
-To make users be able to login and out of their pokédex account, I created a database to store users login credentials using phpMyAdmin and the MAMP server.
-Since I didn't know much about database and using PHP to log users in and out of a 'session', I watched this tutorial to better understand the process and created the pokédex database.
-# Tutorial Link
-https://www.youtube.com/watch?v=LiomRvK7AM8
+## Project Overview
 
-# Problem when connecting to the database
-After creating the database and submitting a form, I kept getting a 405 error, which upon research I understand that the server could not connect to the database because the PHP file was not found (even though the file was there).
-After sleepless nights and dreadful panic attacks researching, trying to debug (more like a few hours, realistically speaking 🤣😅) I realized that because I was opening the index.html file via VScode live extension, the PHP file was not being interpreted when the form was submitted (stupid me 😢🤦🏽‍♂️).
-# Solution
-Instead of VScode live serve, I accessed the file through the MAMP server which was able to interpret the PHP file and connect to the database.
+A simple, responsive web application with two main areas:
 
-# Problem when showing the large Pokémon image 
-Upon changing the large pokémon image dynamically, I used the variable from the forEach() that holds the current pokémon the user clicked on as an argument to the function that generates the html for the large pokémon. However, I noticed it return the text 'object HTMLDivElement'. Seems like it was returning the actual div element instead of the image like what was expecting.
-# Solution
-I watched this youTube tutorial and realized that I needed to target the innerHTML of that div to get the image.
-# Tutorial Link
-https://www.youtube.com/watch?v=e7nXia_tZ4Y&t=88s
+- **Dashboard** — explore and catch Pokémon fetched from the PokéAPI.
+- **Pokéland** — view and manage caught Pokémon (stats, release, train).
 
-# Problem when retrieving the Pokémon name via the data- attribute
-The idea I had was to display each pokemon name on the overlay for the large Pokémon display.In order to do this, I used the data- attribute to attach the name to each Pokémon image in the HTML. However, I later found out that I went about it incorrectly, because when I tried to retrieve the name in Js, I kept getting an empty DOM object in the console. Which basically means the data- attribute was not returning the Pokémon name as I intended.
-# Solution
-I stumbled upon this video as I did further research on the data- attribute, to see if I was applying it correctly. After watching the video, it dawned on me to attach the Pokémon name via the data- attribute to the div that holds the Pokémon image, instead of the actual image since the the Js function I was using to get the images was returning the entire div + content.
-# Tutorial Link
-https://www.youtube.com/watch?v=XtEs0SZ_4Y0
 
-# Problem when making the first API call with the PokeApi
-It seems so easy in class when learning how to fetch data with APIs, but to my surprise when I first made that call with the PokeApi and receive the data, I was a bit confused as to have I am going get the information that I need. It seems overwhelming looking at all that data, ie; an array of objects that contain other objects with objects inside. 
-# Solution
-When I fetched the first 20 Pokémon, I got an array of objects (results) with the Pokémon name and url for each Pokémon. To get the sprites, I used a for loop to loop through the array (i noticed the array has an index of 0-19) and get the url from the object at the n-th position in the array. I stored the url inside a variable then fetch the data for that Pokémon. With the returned data I was able to access the sprites object for that Pokémon.
+Data lives in `localStorage` so users keep their collection across sessions.
+
+---
+
+## Goal
+
+Build a user-friendly web app to practice API integration and JavaScript patterns while delivering a clear, interactive experience for managing Pokémon.
+
+---
+
+## Process
+
+- Created a system that fetch and manage stored data
+- Used `fetch` with `async/await` to retrieve PokéAPI data.
+- Rendered UI with template literals and updated DOM dynamically.
+- Used event delegation for dynamic elements.
+- Persisted user and collection data in `localStorage`.
+
+---
+
+## Tech Stack
+
+- HTML5
+- CSS3 + Tailwind CSS
+- JavaScript (ES6)
+- PokéAPI (data)
+- Flowbite (UI components)
+- Local Storage (persistence)
+
+---
+
+## Key Features
+
+- Client side sign-up and sign-in (stored in `localStorage`)
+- Pokéland: carousel view of caught Pokémon with actions (stats, release, train)
+- Dashboard: browse and add Pokémon to collection
+- Responsive layout for desktop and mobile
+
+---
+
+## Challenges & Solutions
+
+- *Challenge:* Handling asynchronous API calls  
+  *Solution:* This was my first time working with APIs, so I had to learn how to properly use `fetch()` and handle promises using `async/await`. I also implemented error handling to manage failed requests.
+
+- *Challenge:* I noticed when the sign up link was  clicked, the HTML generated onto the page then quickly disappeared.  
+  *Solution:* By using preventDefault(), I was able to stop the form from resorting to its natural behavior.
+
+- *Challenge:* Duplicate Pokémon being added to pokeArray when the user clicked "Catch" multiple times.  
+  *Solution:* I used some() method to check if a Pokémon was already caught before adding it to the collection.
+
+- *Challenge:* Event listeners not being triggered as expected.  
+  *Solution:* Used event delegation by attaching listeners to parent containers (e.g., cardsContainer and pokeDisplay) and identifying the clicked element using event.target.closest().
+
+- *Challenge:* The carousel did not update dynamically after releasing a Pokémon.  
+  *Solution:* This was a sore point for me because even though I tried calling createCarouselCard() to recreate the cards it still wasn't working. So I ennded up clearing the container first then call createCarouselCard() to recreate the cards and use window.location.reload() to refresh the page and show the updated carousel cards.
+
+---
+
+## What I Learned
+
+- Practical use of `async/await` and error handling for API calls.
+- Event delegation for robust interaction handling on dynamic content.
+- Using `localStorage` for simple persistence without a backend.
+- Debugging and problem solving skills.
+
+---
+
+## Links
+
+- Repo: [https://github.com/yourusername/pokehub]  
